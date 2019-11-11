@@ -1,0 +1,50 @@
+//
+//  main.cpp
+//  IChing3CoinToss
+//
+//  Created by shane wirkes on 19/06/2019.
+//  Copyright © 2019 shane wirkes. All rights reserved.
+//
+
+#include <iostream>
+using std::cout;
+using std::endl;
+#include <string>
+using std::string;
+#include <stdlib.h>
+using std::rand;
+#include <time.h>
+
+int main() {
+    // insert code here...
+    int coin1, coin2, coin3;
+    std::string yin = "=== ===";
+    std::string yang = "=======";
+    std::string changing_yin = "===X===";
+    std::string changing_yang = "===0===";
+    std::string lines[6];
+    
+    for (int n = 1; n <= 6; n++) {
+        coin1 = rand() % 2;
+        coin2 = rand() % 2;
+        coin3 = rand() % 2;
+        if(coin1 + coin2 + coin3 == 0)
+        {
+            lines[n] = changing_yin;
+        } else if (coin1 + coin2 + coin3 == 1)
+        {
+            lines[n] = yang;
+        } else if (coin1 + coin2 + coin3 == 2)
+        {
+            lines[n] = yin;
+        } else if (coin1 + coin2 + coin3 == 3)
+        {
+            lines[n] = changing_yang;
+        }
+    }
+    for(int n = 0; n < sizeof(lines); n++)
+    {
+        cout << lines[n] << endl;
+    }
+    
+};
